@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>SEND MONEY</h1>
+    <form action="/users/<%=user._id%>" method="POST">
+      <label for="reciever">Select reciever</label>
+      <select name="reciever" id="">
+        <%for (let reciever of users) {%> <%if(reciever.name === user.name)
+        continue;%>
+        <option value="<%=reciever._id%>"><%=reciever.name%></option>
+        <%}%>
+      </select>
+      <label for="amount">Transaction Amount (in INR)</label>
+      <input type="number" name="amount" placeholder="transaction amount" />
+      <button>Submit</button>
+    </form>
+  </body>
+</html>
